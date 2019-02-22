@@ -5,7 +5,6 @@ const Enmap = require('enmap');
 
 const { promisify } = require('util');
 const readdir = promisify(require('fs').readdir);
-// client.config = require('./config.json');
 client.commands = new Enmap();
 
 const mongoose = require('mongoose');
