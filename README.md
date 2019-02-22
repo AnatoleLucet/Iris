@@ -22,7 +22,9 @@ sudo pip install docker-compose
 #### Config
 Rename `.env.sample` to `.env` and fill all env vars.
 
-#### Launch the bot
+---
+
+## Start the bot
 
 **With logs**
 ```bash
@@ -36,7 +38,7 @@ docker-compose up -d
 
 ---
 
-## Guide
+## Guides
 
 #### Access to AdminMongo
 You can access to AdminMongo which permit you to see you mongo database on a GUI.
