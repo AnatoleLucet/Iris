@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<translation>
+    <!-- English -->
+    <en>
+        <help>
+            <title>**Commands list :**</title>
+            <content>
+                **!help** - Show this tab.
+                **!date** - Get the current date and time.
+                **!ping** - Return the bot ping and latency.
+                **!name** - Get the name of the bot.
+                **!play** - Play a song by his name or a youtube URL.
+                **!stop** - Stop the song and disconnect.
+                **!pause** - Pause the song.
+                **!resume** - Resume the song.
+                **!playlist list** - Get the list of you playlist.
+                **!playlist add** - Add a song in your playlist.
+                **!playlist remove** - Remove a song of your playlist.
+                **!playlist clear** - Clear your playlist.
+                **!playlist play** - Play your playlist.
+                **!playlist [number]** - Play a specific song of your playlist.
+                **!playlist skip** - Skip to your next playlist song.
+            </content>
+        </help>
+
+        <ping>
+            <title>Pong !</title>
+            <pingText>Ping</pingText>
+            <latency>Latency</latency>
+        </ping>
+
+        <name>My name is</name>
+
+        <languageChange>I've changed the default language to English</languageChange>
+    </en>
+
+    <!-- French -->
+    <fr>
+        <help>
+            <title>**Liste des commandes :**</title>
+            <content>
+                **!test** - Cette commande sert a tester des choses.
+                **!date** - Cette command vous donne la date et l'heure actuel.
+                **!ping** - Cette command vous retourne le ping et le temps de latance du bot.
+            </content>
+        </help>
+
+        <ping>
+            <title>Pong !</title>
+            <pingText>Ping</pingText>
+            <latency>Latence</latency>
+        </ping>
+
+        <name>Je m'appelle</name>
+
+        <languageChange>J'ai changer la langue par defaut en Francais</languageChange>
+    </fr>
+</translation>

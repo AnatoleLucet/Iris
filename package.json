@@ -1,0 +1,36 @@
+{
+  "name": "Iris",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnatoleLucet/bot-discord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnatoleLucet/bot-discord/issues"
+  },
+  "homepage": "https://github.com/AnatoleLucet/bot-discord#readme",
+  "dependencies": {
+    "xml-js": "^1.6.8",
+    "cleverbot-node": "^0.3.11",
+    "discord.js": "github:discordjs/discord.js",
+    "enmap": "^4.5.0",
+    "googleapis": "^36.0.0",
+    "mongoose": "^5.3.15",
+    "node-gyp": "^3.8.0",
+    "node-opus": "^0.3.1",
+    "xml-js": "^1.6.8",
+    "ytdl-core-discord": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "nodemon": "^1.18.9"
+  }
+}
