@@ -2,5 +2,43 @@
 
 ---
 
-## Start the bot
-`docker-compose up`
+## Installation for Ubuntu
+
+#### Install Docker
+
+```bash
+sudo apt-get update
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+sudo apt-get update
+sudo apt-get install -y docker-engine
+```
+
+#### Install docker-compose
+```bash
+sudo pip install docker-compose
+```
+
+#### Config
+Rename `.env.sample` to `.env` and fill all env vars.
+
+#### Launch the bot
+
+**With logs**
+```bash
+docker-compose up
+```
+
+**Without logs**
+```bash
+docker-compose up -d
+```
+
+---
+
+## Guide
+
+#### Access to AdminMongo
+You can access to AdminMongo which permit you to see you mongo database on a GUI.
+
+For accessing to it, go to `localhost:1234` in your navigator and then connect you with `IrisDb` as connection string and `mongodb://mongo:27017/IrisDb` as connection string.
