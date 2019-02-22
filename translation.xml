@@ -21,6 +21,7 @@
                 **!playlist play** - Play your playlist.
                 **!playlist [number]** - Play a specific song of your playlist.
                 **!playlist skip** - Skip to your next playlist song.
+                **!invite** - Get the bot's invite link.
             </content>
         </help>
 
