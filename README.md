@@ -20,7 +20,7 @@ sudo pip install docker-compose
 ```
 
 #### Config
-Rename `.env.sample` to `.env` and fill all env vars.
+Rename `.env.sample` to `.env` and fill any env vars.
 
 ---
 
@@ -41,6 +41,6 @@ docker-compose up -d
 ## Guides
 
 #### Access to AdminMongo
-You can access to AdminMongo which permit you to see you mongo database on a GUI.
+You can access to AdminMongo which permit you to see your mongo database on a GUI.
 
-For accessing to it, go to `localhost:1234` in your navigator and then connect you with `IrisDb` as connection string and `mongodb://mongo:27017/IrisDb` as connection string.
+For accessing to it, go to `localhost:1234` in your navigator and then connect you with `IrisDb` as a connection name and `mongodb://mongo:27017/IrisDb` as a connection string.
