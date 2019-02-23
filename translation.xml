@@ -6,7 +6,7 @@
         <help>
             <title>**Commands list :**</title>
             <content>
-                **!help** - Show this tab.
+                **!help** - Show the different commands.
                 **!date** - Get the current date and time.
                 **!ping** - Return the bot ping and latency.
                 **!name** - Get the name of the bot.
@@ -41,9 +41,22 @@
         <help>
             <title>**Liste des commandes :**</title>
             <content>
-                **!test** - Cette commande sert a tester des choses.
-                **!date** - Cette command vous donne la date et l'heure actuel.
-                **!ping** - Cette command vous retourne le ping et le temps de latance du bot.
+              **!help** - Afficher les différentes commandes.
+              **!date** - Vous donne la date et heure actuel.
+              **!ping** - Vous donne la latence et le ping du bot.
+              **!name** - Vous retourne le nom du bot.
+              **!play** - Jouer une musique avec le nom ou l'URL youtube de la video.
+              **!stop** - Arrete la musique et disconnect le bot du salon vocal.
+              **!pause** - Mettre la musique en pause.
+              **!resume** - Résume La musique.
+              **!playlist list** - Afficher la list de votre playlist.
+              **!playlist add** - Ajoute une musique a votre playlist.
+              **!playlist remove** - Supprimer une musique de votre playlist.
+              **!playlist clear** - Purge votre playlist.
+              **!playlist play** - Joue votre playlist.
+              **!playlist [number]** - Joue une musique spécifique de votre musique.
+              **!playlist skip** - Passer a la musique suivante de votre playlist.
+              **!invite** - Retourne le lien d'invitation du bot.
             </content>
         </help>
 
