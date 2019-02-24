@@ -1,6 +1,6 @@
 {
   "name": "Iris",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AnatoleLucet/bot-discord.git"
+    "url": "git+https://github.com/AnatoleLucet/Iris.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "AnatoleLucet",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AnatoleLucet/bot-discord/issues"
+    "url": "https://github.com/AnatoleLucet/Iris/issues"
   },
-  "homepage": "https://github.com/AnatoleLucet/bot-discord#readme",
+  "homepage": "https://github.com/AnatoleLucet/Iris#readme",
   "dependencies": {
     "xml-js": "^1.6.8",
     "cleverbot-node": "^0.3.11",
