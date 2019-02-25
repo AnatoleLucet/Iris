@@ -75,7 +75,7 @@ exports.run = async (client, message, args, type, number) => {
         let i = 1;
         data.data.items.forEach(video => {
           list += `  ${i++}. \`${video.snippet.title}\`\n`;
-          client.server[message.guild.id].chooseSongList.push({ name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`});
+          client.server[message.guild.id].chooseSongList += { name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`};
         });
         message.channel.send(`${list}Cancel in 15 seconds, you can cancel this by typing \`${process.env.CLIENT_PREFIX}cancel\`.`);
       }
