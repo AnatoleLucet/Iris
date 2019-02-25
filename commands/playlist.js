@@ -65,6 +65,7 @@ exports.run = async (client, message, args) => {
       client.server[message.guild.id].dispatcher.end();
       client.server[message.guild.id].iPlaylist = 0;
       client.server[message.guild.id].playlist = {};
+      client.server[message.guild.id].playing = false;
       return message.channel.send('Your playlist run out of songs.');
     }
     client.server[message.guild.id].songUrl = foundObject[client.server[message.guild.id].iPlaylist].songUrl;
