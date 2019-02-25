@@ -20,8 +20,6 @@ exports.run = async (client, message, args) => {
 
   const voiceConnection = await message.member.voice.channel;
 
-  const permissions = voiceConnection.permissionsFor(message.client.user);
-
   if (!client.server[message.guild.id]) client.server[message.guild.id] = {
     dispatcher: null,
     songName: null,
@@ -36,6 +34,7 @@ exports.run = async (client, message, args) => {
 
 
   const play = (playlist) => {
+    const permissions = voiceConnection.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT')) return message.reply('I don\'t have permission to join your voice channel.');
     if (!permissions.has('SPEAK')) return message.reply('I don\'t have permission to speak in your voice channel.');
 
@@ -89,6 +88,8 @@ exports.run = async (client, message, args) => {
   if (args[0] === 'play' || args[0] === 'p') {
     console.log('play');
 
+    if (!voiceConnection) return message.channel.send('You must be in a voice channel !');
+
     Playlist.findOne({ serverID: message.guild.id }, (err, foundObject) => {
       if(err) console.error(err);
       if (!foundObject) {
@@ -103,6 +104,8 @@ exports.run = async (client, message, args) => {
     // play by random
   } else if (args[0] === 'random' || args[0] === 'r') {
     console.log('random');
+
+    if (!voiceConnection) return message.channel.send('You must be in a voice channel !');
 
     Playlist.findOne({ serverID: message.guild.id }, (err, foundObject) => {
       if(err) console.error(err);
