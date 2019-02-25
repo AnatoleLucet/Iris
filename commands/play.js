@@ -25,7 +25,7 @@ exports.run = async (client, message, args, type, number) => {
 
   const getInfos = (song) => {
     youtube.search.list({ part: 'snippet', masResults: '10', q: song, type: 'video' }, (err, data) => {
-      if (err) console.error(err) || message.channel.send('An error append.');
+      if (err) console.error(err) || message.channel.send('No song has been found.');
 
       if (data) {
         const [youtubeSong] = data.data.items;

@@ -17,10 +17,16 @@ const streamOptions = {
 };
 
 exports.run = async (client, message, args) => {
+
   const voiceConnection = await message.member.voice.channel;
+
+  const permissions = voiceConnection.permissionsFor(message.client.user);
 
 
   const play = (playlist) => {
+    if (!permissions.has('CONNECT')) return message.reply('I don\'t have permission to join your voice channel.');
+    if (!permissions.has('SPEAK')) return message.reply('I don\'t have permission to speak in your voice channel.');
+
     voiceConnection.join().then(connection => {
       if (client.server[message.guild.id].dispatcher) client.server[message.guild.id].dispatcher.end();
 
