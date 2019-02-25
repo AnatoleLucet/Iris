@@ -6,7 +6,7 @@
         <help>
           <title>**Commands list :**</title>
           <musicField>
-            <title>**Music**<title>
+            <title>**Music**</title>
             <content>
               **!play** - Play a song by his name or a youtube URL.
               **!stop** - Stop the song and disconnect (can be used with the playlist).
@@ -16,7 +16,7 @@
           </musicField>
 
           <playlistField>
-            <title>**Playlist**<title>
+            <title>**Playlist**</title>
             <content>
               **!playlist list** - Get the list of you playlist.
               **!playlist add** - Add a song in your playlist.
@@ -30,7 +30,7 @@
           </playlistField>
 
           <othersField>
-            <title>**Others**<title>
+            <title>**Others**</title>
             <content>
               **!help** - Show the different commands.
               **!date** - Get the current date and time.
@@ -57,7 +57,7 @@
         <help>
           <title>**Liste des commandes :**</title>
           <musicField>
-            <title>**Musique**<title>
+            <title>**Musique**</title>
             <content>
               **!play** - Jouer une musique avec le nom ou l'URL youtube de la video.
               **!stop** - Arrete la musique et disconnect le bot du salon vocal (peut etre utiliser avec la playlist).
@@ -67,7 +67,7 @@
           </musicField>
 
           <playlistField>
-            <title>**Playlist**<title>
+            <title>**Playlist**</title>
             <content>
               **!playlist list** - Afficher la list de votre playlist.
               **!playlist add** - Ajoute une musique a votre playlist.
@@ -81,7 +81,7 @@
           </playlistField>
 
           <othersField>
-            <title>**Autres**<title>
+            <title>**Autres**</title>
             <content>
               **!help** - Afficher les différentes commandes.
               **!date** - Vous donne la date et heure actuel.
