@@ -22,6 +22,18 @@ exports.run = async (client, message, args) => {
 
   const permissions = voiceConnection.permissionsFor(message.client.user);
 
+  if (!client.server[message.guild.id]) client.server[message.guild.id] = {
+    dispatcher: null,
+    songName: null,
+    songUrl: null,
+    playing: false,
+    chooseSong: false,
+    chooseSongList: [],
+    iPlaylist: 0,
+    skip: false,
+    playlist: {}
+  };
+
 
   const play = (playlist) => {
     if (!permissions.has('CONNECT')) return message.reply('I don\'t have permission to join your voice channel.');
@@ -40,9 +52,7 @@ exports.run = async (client, message, args) => {
             Playlist.findOne({ serverID: message.guild.id }, (err, foundObject) => {
               if(err) console.error(err);
               if (!foundObject) return message.channel.send('No playlist found !');
-              if (!client.server[message.guild.id].playing) return;
-              if (client.server[message.guild.id].randomPlaylist !== {}) return playNextSong(client.server[message.guild.id].randomPlaylist);
-              playNextSong(foundObject.playlist);
+              if (client.server[message.guild.id].playing && client.server[message.guild.id].playlist !== {}) return playNextSong(client.server[message.guild.id].playlist);
             });
           });
         }
@@ -54,10 +64,9 @@ exports.run = async (client, message, args) => {
     if (client.server[message.guild.id].iPlaylist >= foundObject.length || client.server[message.guild.id].iPlaylist < 0) {
       client.server[message.guild.id].dispatcher.end();
       client.server[message.guild.id].iPlaylist = 0;
-      client.server[message.guild.id].randomPlaylist = {};
+      client.server[message.guild.id].playlist = {};
       return message.channel.send('Your playlist run out of songs.');
     }
-    console.log(foundObject);
     client.server[message.guild.id].songUrl = foundObject[client.server[message.guild.id].iPlaylist].songUrl;
     client.server[message.guild.id].songName = foundObject[client.server[message.guild.id].iPlaylist].songName;
     client.server[message.guild.id].iPlaylist++;
@@ -74,10 +83,6 @@ exports.run = async (client, message, args) => {
     }
     return a;
   };
-
-
-  if (!client.server[message.guild.id]) client.server[message.guild.id] = { dispatcher: null, songName: null, songUrl: null, playing: false, chooseSong: false, chooseSongList: [], iPlaylist: 0, skip: false, randomPlaylist: {} };
-
 
   // play the playlist
   if (args[0] === 'play' || args[0] === 'p') {
@@ -103,8 +108,8 @@ exports.run = async (client, message, args) => {
         message.channel.send('No playlist found !');
       } else {
         if (client.server[message.guild.id].playing) return message.channel.send('I\'m already playing.');
-        client.server[message.guild.id].randomPlaylist = shuffleArray(foundObject.playlist);
-        playNextSong(client.server[message.guild.id].randomPlaylist);
+        client.server[message.guild.id].playlist = shuffleArray(foundObject.playlist);
+        playNextSong(client.server[message.guild.id].playlist);
       }
     });
 
