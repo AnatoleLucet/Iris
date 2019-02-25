@@ -4,7 +4,7 @@
     <!-- English -->
     <en>
         <help>
-          <title>**Commands list :**</title>
+          <title>**__Commands list :__**</title>
           <musicField>
             <title>**Music**</title>
             <content>
@@ -55,7 +55,7 @@
     <!-- French -->
     <fr>
         <help>
-          <title>**Liste des commandes :**</title>
+          <title>**__Liste des commandes :__**</title>
           <musicField>
             <title>**Musique**</title>
             <content>

@@ -3,10 +3,6 @@ exports.run = (client, message) => {
   message.channel.send({
     embed: {
       color: color,
-      author: {
-        name: message.member.user.username,
-        icon_url: message.member.user.avatarURL
-      },
       title: client.translation.help.title._text,
       fields: [
         {
