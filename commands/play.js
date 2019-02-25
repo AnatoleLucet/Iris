@@ -90,8 +90,8 @@ exports.run = async (client, message, args, type, number) => {
   if (type) {
     console.log(number);
     client.server[message.guild.id].chooseSong = false;
-    client.server[message.guild.id].songUrl = client.server[message.guild.id].chooseSongList.url[number - 1];
-    client.server[message.guild.id].songName = client.server[message.guild.id].chooseSongList.name[number - 1];
+    client.server[message.guild.id].songUrl = client.server[message.guild.id].chooseSongList[number - 1].url;
+    client.server[message.guild.id].songName = client.server[message.guild.id].chooseSongList[number - 1].name;
 
     console.log(client.server[message.guild.id].songUrl, client.server[message.guild.id].songName);
     return play();
