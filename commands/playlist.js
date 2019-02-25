@@ -95,7 +95,8 @@ exports.run = async (client, message, args) => {
         message.channel.send('No playlist found !');
       } else {
         if (client.server[message.guild.id].playing) return message.channel.send('I\'m already playing.');
-        playNextSong(foundObject.playlist);
+        client.server[message.guild.id].playlist = foundObject.playlist;
+        playNextSong(client.server[message.guild.id].playlist);
       }
     });
 
