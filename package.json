@@ -1,6 +1,6 @@
 {
   "name": "Iris",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "description": "The ultimate messenger",
   "main": "index.js",
   "scripts": {

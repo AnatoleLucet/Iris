@@ -18,10 +18,26 @@ exports.run = async (client, message, args, type, number) => {
 
   const voiceConnection = await message.member.voice.channel;
 
+  if (!voiceConnection) return message.channel.send('You must be in a voice channel !');
+
   const permissions = voiceConnection.permissionsFor(message.client.user);
 
   if (!permissions.has('CONNECT')) return message.reply('I don\'t have permission to join your voice channel.');
   if (!permissions.has('SPEAK')) return message.reply('I don\'t have permission to speak in your voice channel.');
+
+
+  if (!client.server[message.guild.id]) client.server[message.guild.id] = {
+    dispatcher: null,
+    songName: null,
+    songUrl: null,
+    playing: false,
+    chooseSong: false,
+    chooseSongList: [],
+    iPlaylist: 0,
+    skip: false,
+    playlist: {}
+  };
+
 
   const getInfos = (song) => {
     youtube.search.list({ part: 'snippet', masResults: '10', q: song, type: 'video' }, (err, data) => {
@@ -46,20 +62,20 @@ exports.run = async (client, message, args, type, number) => {
         client.server[message.guild.id].playing = true;
         await message.channel.send(`Now playing \`${client.server[message.guild.id].songName}\``);
       }, 600);
-    }).catch(err => console.error(err) || message.channel.send('An error append !'));
+    }).catch(err => console.error(err) && message.channel.send('An error append !'));
   };
 
   const search = (song) => {
     let list = 'Type the number of the song you want to play :\n';
     youtube.search.list({ part: 'snippet', masResults: '5', q: song, type: 'video' }, (err, data) => {
-      if (err) console.error(err) || message.channel.send('An error append.');
+      if (err) console.error(err) && message.channel.send('An error append.');
 
       if (data) {
-        client.server[message.guild.id].chooseSongList = [];
+        client.server[message.guild.id].chooseSongList = {};
         let i = 1;
         data.data.items.forEach(video => {
           list += `  ${i++}. \`${video.snippet.title}\`\n`;
-          client.server[message.guild.id].chooseSongList.push(`https://www.youtube.com/watch?v=${video.id.videoId}`);
+          client.server[message.guild.id].chooseSongList.push({ name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`});
         });
         message.channel.send(`${list}Cancel in 15 seconds, you can cancel this by typing \`${process.env.CLIENT_PREFIX}cancel\`.`);
       }
@@ -72,26 +88,12 @@ exports.run = async (client, message, args, type, number) => {
   if (type) {
     console.log(number);
     client.server[message.guild.id].chooseSong = false;
-    client.server[message.guild.id].songUrl = client.server[message.guild.id].chooseSongList[number - 1];
-    console.log(client.server[message.guild.id].songUrl);
-    getInfos(client.server[message.guild.id].songUrl);
+    client.server[message.guild.id].songUrl = client.server[message.guild.id].chooseSongList.url[number - 1];
+    client.server[message.guild.id].songName = client.server[message.guild.id].chooseSongList.name[number - 1];
+
+    console.log(client.server[message.guild.id].songUrl, client.server[message.guild.id].songName);
     return play();
   }
-
-  if (!voiceConnection) return message.channel.send('You must be in a voice channel !');
-
-  if (!client.server[message.guild.id]) client.server[message.guild.id] = {
-    dispatcher: null,
-    songName: null,
-    songUrl: null,
-    playing: false,
-    chooseSong: false,
-    chooseSongList: [],
-    iPlaylist: 0,
-    skip: false,
-    playlist: {}
-  };
-
 
   if (args.toString().match(/^https?:\/\/(www.youtube.com|youtube.com)\/watch\?v=(.*)$/)) {
     getInfos(args.toString());
