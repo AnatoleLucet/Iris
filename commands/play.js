@@ -71,12 +71,14 @@ exports.run = async (client, message, args, type, number) => {
       if (err) console.error(err) && message.channel.send('An error append.');
 
       if (data) {
-        client.server[message.guild.id].chooseSongList = {};
+        client.server[message.guild.id].chooseSongList = [];
         let i = 1;
         data.data.items.forEach(video => {
-          list += `  ${i++}. \`${video.snippet.title}\`\n`;
-          client.server[message.guild.id].chooseSongList += { name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`};
+          list += `  ${i}. \`${video.snippet.title}\`\n`;
+          client.server[message.guild.id].chooseSongList[i-1] += { name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`};
+          i++;
         });
+        console.log(client.server[message.guild.id].chooseSongList);
         message.channel.send(`${list}Cancel in 15 seconds, you can cancel this by typing \`${process.env.CLIENT_PREFIX}cancel\`.`);
       }
       client.server[message.guild.id].chooseSong = true;
