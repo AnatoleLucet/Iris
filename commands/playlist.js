@@ -40,7 +40,7 @@ exports.run = async (client, message, args) => {
             Playlist.findOne({ serverID: message.guild.id }, (err, foundObject) => {
               if(err) console.error(err);
               if (!foundObject) return message.channel.send('An error append !');
-              if (client.server[message.guild.id].playing === true) return playNextSong(foundObject);
+              if (client.server[message.guild.id].playing === true) return playNextSong(foundObject.playlist);
             });
           });
         }
@@ -85,7 +85,7 @@ exports.run = async (client, message, args) => {
         message.channel.send('No playlist found !');
       } else {
         if (client.server[message.guild.id].playing) return message.channel.send('I\'m already playing.');
-        playNextSong(foundObject);
+        playNextSong(foundObject.playlist);
       }
     });
 
