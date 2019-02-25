@@ -57,6 +57,7 @@ exports.run = async (client, message, args) => {
       client.server[message.guild.id].randomPlaylist = {};
       return message.channel.send('Your playlist run out of songs.');
     }
+    console.log(foundObject);
     client.server[message.guild.id].songUrl = foundObject[client.server[message.guild.id].iPlaylist].songUrl;
     client.server[message.guild.id].songName = foundObject[client.server[message.guild.id].iPlaylist].songName;
     client.server[message.guild.id].iPlaylist++;

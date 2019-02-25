@@ -12,7 +12,8 @@ exports.run = (client, message) => {
         value: client.translation.help.content._text
       }],
       timestamp: new Date(),
-      footer: { text: `© ${client.user.username}` }
+      footer: { text: `© ${client.user.username}` },
+      length: 1500
     }
   });
 };
