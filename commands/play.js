@@ -80,7 +80,7 @@ exports.run = async (client, message, args, type, number) => {
 
   if (!voiceConnection) return message.channel.send('You must be in a voice channel !');
 
-  if (!client.server[message.guild.id]) client.server[message.guild.id] = { dispatcher: null, songName: null, songUrl: null, playing: false, chooseSong: false, chooseSongList: [], iPlaylist: 0 };
+  if (!client.server[message.guild.id]) client.server[message.guild.id] = { dispatcher: null, songName: null, songUrl: null, playing: false, chooseSong: false, chooseSongList: [], iPlaylist: 0, skip: false, randomPlaylist: {} };
 
   if (args.toString().match(/^https?:\/\/(www.youtube.com|youtube.com)\/watch\?v=(.*)$/)) {
     getInfos(args.toString());

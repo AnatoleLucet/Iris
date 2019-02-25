@@ -19,7 +19,8 @@
                 **!playlist remove** - Remove a song of your playlist.
                 **!playlist clear** - Clear your playlist.
                 **!playlist play** - Play your playlist.
-                **!playlist [number]** - Play a specific song of your playlist.
+                **!playlist random** - Play your playlist in random mode.
+                **!playlist {number}** - Play a specific song of your playlist.
                 **!playlist skip** - Skip to your next playlist song.
                 **!invite** - Get the bot's invite link.
             </content>
@@ -54,7 +55,8 @@
               **!playlist remove** - Supprimer une musique de votre playlist.
               **!playlist clear** - Purge votre playlist.
               **!playlist play** - Joue votre playlist.
-              **!playlist [number]** - Joue une musique spécifique de votre musique.
+              **!playlist random** - Joue votre playlist en mode aléatoire.
+              **!playlist {number}** - Joue une musique spécifique de votre musique.
               **!playlist skip** - Passer a la musique suivante de votre playlist.
               **!invite** - Retourne le lien d'invitation du bot.
             </content>

@@ -39,8 +39,10 @@ exports.run = async (client, message, args) => {
           client.server[message.guild.id].dispatcher.once('end', () => {
             Playlist.findOne({ serverID: message.guild.id }, (err, foundObject) => {
               if(err) console.error(err);
-              if (!foundObject) return message.channel.send('An error append !');
-              if (client.server[message.guild.id].playing === true) return playNextSong(foundObject.playlist);
+              if (!foundObject) return message.channel.send('No playlist found !');
+              if (!client.server[message.guild.id].playing) return;
+              if (client.server[message.guild.id].randomPlaylist !== {}) return playNextSong(client.server[message.guild.id].randomPlaylist);
+              playNextSong(foundObject.playlist);
             });
           });
         }
@@ -52,6 +54,7 @@ exports.run = async (client, message, args) => {
     if (client.server[message.guild.id].iPlaylist >= foundObject.length || client.server[message.guild.id].iPlaylist < 0) {
       client.server[message.guild.id].dispatcher.end();
       client.server[message.guild.id].iPlaylist = 0;
+      client.server[message.guild.id].randomPlaylist = {};
       return message.channel.send('Your playlist run out of songs.');
     }
     client.server[message.guild.id].songUrl = foundObject[client.server[message.guild.id].iPlaylist].songUrl;
@@ -72,7 +75,7 @@ exports.run = async (client, message, args) => {
   };
 
 
-  if (!client.server[message.guild.id]) client.server[message.guild.id] = { dispatcher: null, songName: null, songUrl: null, playing: false, chooseSong: false, chooseSongList: [], iPlaylist: 0, skip: false };
+  if (!client.server[message.guild.id]) client.server[message.guild.id] = { dispatcher: null, songName: null, songUrl: null, playing: false, chooseSong: false, chooseSongList: [], iPlaylist: 0, skip: false, randomPlaylist: {} };
 
 
   // play the playlist
@@ -99,11 +102,8 @@ exports.run = async (client, message, args) => {
         message.channel.send('No playlist found !');
       } else {
         if (client.server[message.guild.id].playing) return message.channel.send('I\'m already playing.');
-        // let songlist = {};
-        // foundObject.playlist.forEach((song) => {
-        //   songlist.push(song);
-        // });
-        playNextSong(shuffleArray(foundObject.playlist));
+        client.server[message.guild.id].randomPlaylist = shuffleArray(foundObject.playlist);
+        playNextSong(client.server[message.guild.id].randomPlaylist);
       }
     });
 
