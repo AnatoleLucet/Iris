@@ -100,7 +100,7 @@ exports.run = async (client, message, args, type, number) => {
   if (args.toString().match(/^https?:\/\/(www.youtube.com|youtube.com)\/watch\?v=(.*)$/)) {
     getInfos(args.toString());
     return play();
-  } else if (args.length > 1 && !(/^https?:\/\/(.*)$/).test(args.join(' '))) {
+  } else if (args.length > 0 && !(/^https?:\/\/(.*)$/).test(args.join(' '))) {
     return search(args.join(' '));
   } else if (args.length === 0) {
     return message.channel.send('You must provide a link or a song name.');
