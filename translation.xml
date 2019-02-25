@@ -4,26 +4,41 @@
     <!-- English -->
     <en>
         <help>
-            <title>**Commands list :**</title>
+          <title>**Commands list :**</title>
+          <musicField>
+            <title>**Music**<title>
             <content>
-                **!help** - Show the different commands.
-                **!date** - Get the current date and time.
-                **!ping** - Return the bot ping and latency.
-                **!name** - Get the name of the bot.
-                **!play** - Play a song by his name or a youtube URL.
-                **!stop** - Stop the song and disconnect.
-                **!pause** - Pause the song.
-                **!resume** - Resume the song.
-                **!playlist list** - Get the list of you playlist.
-                **!playlist add** - Add a song in your playlist.
-                **!playlist remove** - Remove a song of your playlist.
-                **!playlist clear** - Clear your playlist.
-                **!playlist play** - Play your playlist.
-                **!playlist random** - Play your playlist in random mode.
-                **!playlist {number}** - Play a specific song of your playlist.
-                **!playlist skip** - Skip to your next playlist song.
-                **!invite** - Get the bot's invite link.
+              **!play** - Play a song by his name or a youtube URL.
+              **!stop** - Stop the song and disconnect (can be used with the playlist).
+              **!pause** - Pause the song (can be used with the playlist).
+              **!resume** - Resume the song (can be used with the playlist).
             </content>
+          </musicField>
+
+          <playlistField>
+            <title>**Playlist**<title>
+            <content>
+              **!playlist list** - Get the list of you playlist.
+              **!playlist add** - Add a song in your playlist.
+              **!playlist remove** - Remove a song of your playlist.
+              **!playlist clear** - Clear your playlist.
+              **!playlist play** - Play your playlist.
+              **!playlist random** - Play your playlist in random mode.
+              **!playlist {number}** - Play a specific song of your playlist.
+              **!playlist skip** - Skip to your next playlist song.
+            </content>
+          </playlistField>
+
+          <othersField>
+            <title>**Others**<title>
+            <content>
+              **!help** - Show the different commands.
+              **!date** - Get the current date and time.
+              **!ping** - Return the bot ping and latency.
+              **!name** - Get the name of the bot.
+              **!invite** - Get the bot's invite link.
+            </content>
+          </othersField>
         </help>
 
         <ping>
@@ -40,16 +55,20 @@
     <!-- French -->
     <fr>
         <help>
-            <title>**Liste des commandes :**</title>
+          <title>**Liste des commandes :**</title>
+          <musicField>
+            <title>**Musique**<title>
             <content>
-              **!help** - Afficher les différentes commandes.
-              **!date** - Vous donne la date et heure actuel.
-              **!ping** - Vous donne la latence et le ping du bot.
-              **!name** - Vous retourne le nom du bot.
               **!play** - Jouer une musique avec le nom ou l'URL youtube de la video.
-              **!stop** - Arrete la musique et disconnect le bot du salon vocal.
-              **!pause** - Mettre la musique en pause.
-              **!resume** - Résume La musique.
+              **!stop** - Arrete la musique et disconnect le bot du salon vocal (peut etre utiliser avec la playlist).
+              **!pause** - Mettre la musique en pause (peut etre utiliser avec la playlist).
+              **!resume** - Résume La musique (peut etre utiliser avec la playlist).
+            </content>
+          </musicField>
+
+          <playlistField>
+            <title>**Playlist**<title>
+            <content>
               **!playlist list** - Afficher la list de votre playlist.
               **!playlist add** - Ajoute une musique a votre playlist.
               **!playlist remove** - Supprimer une musique de votre playlist.
@@ -58,8 +77,18 @@
               **!playlist random** - Joue votre playlist en mode aléatoire.
               **!playlist {number}** - Joue une musique spécifique de votre musique.
               **!playlist skip** - Passer a la musique suivante de votre playlist.
-              **!invite** - Retourne le lien d'invitation du bot.
             </content>
+          </playlistField>
+
+          <othersField>
+            <title>**Autres**<title>
+            <content>
+              **!help** - Afficher les différentes commandes.
+              **!date** - Vous donne la date et heure actuel.
+              **!ping** - Vous donne la latence et le ping du bot.
+              **!name** - Vous retourne le nom du bot.
+            </content>
+          </othersField>
         </help>
 
         <ping>
