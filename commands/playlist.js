@@ -44,7 +44,7 @@ exports.run = async (client, message, args) => {
             });
           });
         }
-      }, 500);
+      }, 600);
     }).catch(err => console.error(err) && message.channel.send('An error append !'));
   };
 
