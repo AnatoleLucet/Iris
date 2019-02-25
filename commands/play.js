@@ -15,7 +15,13 @@ const streamOptions = {
 };
 
 exports.run = async (client, message, args, type, number) => {
+
   const voiceConnection = await message.member.voice.channel;
+
+  const permissions = voiceConnection.permissionsFor(message.client.user);
+
+  if (!permissions.has('CONNECT')) return message.reply('I don\'t have permission to join your voice channel.');
+  if (!permissions.has('SPEAK')) return message.reply('I don\'t have permission to speak in your voice channel.');
 
   const getInfos = (song) => {
     youtube.search.list({ part: 'snippet', masResults: '10', q: song, type: 'video' }, (err, data) => {
@@ -39,10 +45,6 @@ exports.run = async (client, message, args, type, number) => {
         client.server[message.guild.id].dispatcher = connection.play(await ytdl(client.server[message.guild.id].songUrl, ytdlOptions), streamOptions);
         client.server[message.guild.id].playing = true;
         await message.channel.send(`Now playing \`${client.server[message.guild.id].songName}\``);
-
-        client.server[message.guild.id].dispatcher.once('end', () => {
-          console.log('ended');
-        });
       }, 600);
     }).catch(err => console.error(err) || message.channel.send('An error append !'));
   };
