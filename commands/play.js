@@ -55,6 +55,7 @@ exports.run = async (client, message, args, type, number) => {
       if (err) console.error(err) || message.channel.send('An error append.');
 
       if (data) {
+        client.server[message.guild.id].chooseSongList = [];
         let i = 1;
         data.data.items.forEach(video => {
           list += `  ${i++}. \`${video.snippet.title}\`\n`;
