@@ -75,7 +75,7 @@ exports.run = async (client, message, args, type, number) => {
         let i = 1;
         data.data.items.forEach(video => {
           list += `  ${i}. \`${video.snippet.title}\`\n`;
-          client.server[message.guild.id].chooseSongList[i - 1] += { name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`};
+          client.server[message.guild.id].chooseSongList[i - 1] = { name: video.snippet.title, url: `https://www.youtube.com/watch?v=${video.id.videoId}`};
           i++;
         });
         console.log(client.server[message.guild.id].chooseSongList);
