@@ -21,7 +21,7 @@ services:
     volumes:
       - ~/data:/data/db
     restart: always
-    
+
   adminmongo:
     image: mrvautin/adminmongo
     ports:
