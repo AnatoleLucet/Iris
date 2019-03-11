@@ -26,19 +26,6 @@ exports.run = async (client, message, args, type, number) => {
   if (!permissions.has('SPEAK')) return message.reply('I don\'t have permission to speak in your voice channel.');
 
 
-  if (!client.server[message.guild.id]) client.server[message.guild.id] = {
-    dispatcher: null,
-    songName: null,
-    songUrl: null,
-    playing: false,
-    chooseSong: false,
-    chooseSongList: [],
-    iPlaylist: 0,
-    skip: false,
-    playlist: {}
-  };
-
-
   const getInfos = (song) => {
     youtube.search.list({ part: 'snippet', masResults: '10', q: song, type: 'video' }, (err, data) => {
       if (err) console.error(err) || message.channel.send('No song has been found.');

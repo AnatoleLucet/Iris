@@ -3,6 +3,8 @@ const client = new Discord.Client();
 
 const Enmap = require('enmap');
 
+const fs = require('fs');
+
 const { promisify } = require('util');
 const readdir = promisify(require('fs').readdir);
 client.commands = new Enmap();
@@ -15,6 +17,14 @@ const translation = require('./modules/translation');
 client.translation = translation;
 
 client.server = {};
+
+const mkdir = (path) => {
+  fs.exists(path, (exist) => {
+    if (!exist) fs.mkdirSync(path, { recursive: true });
+  });
+};
+mkdir('/tmp/iris');
+mkdir('/tmp/iris/exports');
 
 
 const init = async () => {

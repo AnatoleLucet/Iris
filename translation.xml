@@ -26,6 +26,8 @@
               **!playlist random** - Play your playlist in random mode.
               **!playlist {number}** - Play a specific song of your playlist.
               **!playlist skip** - Skip to your next playlist song.
+              **!playlist export** - Export your playlist save's file.
+              **!playlist import** - Import a playlist from a playlist save's file.
             </content>
           </playlistField>
 
@@ -77,6 +79,8 @@
               **!playlist random** - Joue votre playlist en mode aléatoire.
               **!playlist {number}** - Joue une musique spécifique de votre musique.
               **!playlist skip** - Passer a la musique suivante de votre playlist.
+              **!playlist export** - Exporte le fichier de sauvegarde de votre playlist.
+              **!playlist import** - Importe une playlist a partir du fichier de sauvegarde.
             </content>
           </playlistField>
 

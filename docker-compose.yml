@@ -24,6 +24,7 @@ services:
 
   adminmongo:
     image: mrvautin/adminmongo
+    restart: always
     ports:
       - 1234:1234
     environment:
