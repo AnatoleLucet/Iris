@@ -1,5 +1,7 @@
 # Iris, the ultimate messenger
 
+**Currently this bot is pretty old and not well coded. I will rewrite it soon with newer/better techologies.**
+
 ---
 
 ## Installation for Ubuntu
