@@ -1,0 +1,12 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = tab
+
+[*.ts]
+quote_type = single
+end_of_line = lf
+insert_final_newline = true
+indent_style = tab

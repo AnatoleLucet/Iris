@@ -1,0 +1,12 @@
+{
+	"name": "iris",
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"@bazel/ibazel": "^0.10.3",
+		"@bazel/typescript": "^1.0.1",
+		"git-cz": "^3.3.0",
+		"typescript": "^3.7.2"
+	},
+	"devDependencies": {}
+}

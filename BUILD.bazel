@@ -1,0 +1,9 @@
+exports_files([
+	'tsconfig.json',
+	'package.json'
+], visibility = ['//visibility:public'])
+
+
+load('@npm//git-cz:index.bzl', 'git_cz')
+
+git_cz(name = 'commit')
